@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KVU Sponsoren
  * Description: Sponsoren- und Partnerpagina des KV Untertürkheim. Shortcode: [kvu_sponsoren]
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: KVU Untertuerkheim
  */
 
@@ -167,7 +167,7 @@ function kvu_sponsoren_shortcode() {
     <!-- ── STATS ───────────────────────────────────────────────────────── -->
     <div class="sp-stats">
         <div class="sp-stats-inner">
-            <div><span class="sp-stat-num">500+</span><div class="sp-stat-label">Mitglieder</div></div>
+            <div><span class="sp-stat-num">400+</span><div class="sp-stat-label">Mitglieder</div></div>
             <div><span class="sp-stat-num">120</span><div class="sp-stat-label">Jahre Vereinsgeschichte</div></div>
             <div><span class="sp-stat-num">12</span><div class="sp-stat-label">Tennisplätze &amp; Padel-Courts</div></div>
             <div><span class="sp-stat-num">50+</span><div class="sp-stat-label">Events pro Jahr</div></div>

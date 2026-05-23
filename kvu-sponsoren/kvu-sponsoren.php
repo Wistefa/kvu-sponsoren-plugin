@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KVU Sponsoren
  * Description: Sponsoren- und Partnerpagina des KV Untertürkheim. Shortcode: [kvu_sponsoren]
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: KVU Untertuerkheim
  */
 
@@ -29,7 +29,12 @@ function kvu_sponsoren_anfrage() {
         wp_send_json_error( [ 'msg' => 'Bitte alle Pflichtfelder ausfüllen.' ] );
     }
 
-    $empfaenger = get_option( 'kvu_sponsoren_email', 'info@kv-untertuerkheim.de' );
+    $alle = array_filter( [
+        get_option( 'kvu_sponsoren_email',  'info@kv-untertuerkheim.de' ),
+        get_option( 'kvu_sponsoren_email2', '' ),
+        get_option( 'kvu_sponsoren_email3', '' ),
+    ] );
+    $empfaenger = implode( ',', $alle );
     $betreff    = '[KVU Sponsoren] Anfrage von ' . $vorname . ' ' . $name . ' – ' . $firma;
     $inhalt     = "Neue Sponsor-Anfrage\n\n"
                 . "Unternehmen: {$firma}\n"
@@ -75,10 +80,14 @@ function kvu_sponsoren_admin_menu() {
 
 function kvu_sponsoren_admin_page() {
     if ( isset( $_POST['kvu_sponsoren_save'] ) && check_admin_referer( 'kvu_sponsoren_settings' ) ) {
-        update_option( 'kvu_sponsoren_email', sanitize_email( $_POST['kvu_sponsoren_email'] ?? '' ) );
+        update_option( 'kvu_sponsoren_email',  sanitize_email( $_POST['kvu_sponsoren_email']  ?? '' ) );
+        update_option( 'kvu_sponsoren_email2', sanitize_email( $_POST['kvu_sponsoren_email2'] ?? '' ) );
+        update_option( 'kvu_sponsoren_email3', sanitize_email( $_POST['kvu_sponsoren_email3'] ?? '' ) );
         echo '<div class="notice notice-success"><p>Einstellungen gespeichert.</p></div>';
     }
-    $email = get_option( 'kvu_sponsoren_email', 'info@kv-untertuerkheim.de' );
+    $email  = get_option( 'kvu_sponsoren_email',  'info@kv-untertuerkheim.de' );
+    $email2 = get_option( 'kvu_sponsoren_email2', '' );
+    $email3 = get_option( 'kvu_sponsoren_email3', '' );
     ?>
     <div class="wrap">
         <h1>KVU Sponsoren — Einstellungen</h1>
@@ -86,11 +95,27 @@ function kvu_sponsoren_admin_page() {
             <?php wp_nonce_field( 'kvu_sponsoren_settings' ); ?>
             <table class="form-table">
                 <tr>
-                    <th><label for="kvu_sponsoren_email">Anfragen senden an</label></th>
+                    <th><label for="kvu_sponsoren_email">Empfänger 1 *</label></th>
                     <td>
                         <input type="email" id="kvu_sponsoren_email" name="kvu_sponsoren_email"
-                               value="<?php echo esc_attr( $email ); ?>" class="regular-text" />
-                        <p class="description">E-Mail-Adresse, die Sponsor-Anfragen vom Kontaktformular erhält.</p>
+                               value="<?php echo esc_attr( $email ); ?>" class="regular-text" required />
+                        <p class="description">Pflichtfeld — erhält alle Sponsor-Anfragen.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="kvu_sponsoren_email2">Empfänger 2</label></th>
+                    <td>
+                        <input type="email" id="kvu_sponsoren_email2" name="kvu_sponsoren_email2"
+                               value="<?php echo esc_attr( $email2 ); ?>" class="regular-text" />
+                        <p class="description">Optional — leer lassen wenn nicht benötigt.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="kvu_sponsoren_email3">Empfänger 3</label></th>
+                    <td>
+                        <input type="email" id="kvu_sponsoren_email3" name="kvu_sponsoren_email3"
+                               value="<?php echo esc_attr( $email3 ); ?>" class="regular-text" />
+                        <p class="description">Optional — leer lassen wenn nicht benötigt.</p>
                     </td>
                 </tr>
             </table>

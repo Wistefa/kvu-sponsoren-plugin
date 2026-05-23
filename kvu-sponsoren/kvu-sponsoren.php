@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KVU Sponsoren
  * Description: Sponsoren- und Partnerpagina des KV Untertürkheim. Shortcode: [kvu_sponsoren]
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: KVU Untertuerkheim
  */
 
@@ -199,7 +199,7 @@ function kvu_sponsoren_shortcode() {
                 <div class="sp-why-card">
                     <div class="sp-why-icon">📱</div>
                     <h3>Digital-Reichweite</h3>
-                    <p>Präsenz auf Website und Social Media des KVU mit mehreren tausend Besuchern monatlich.</p>
+                    <p>Präsenz auf Website und Social Media des KVU mit mehreren hundert Besuchern monatlich.</p>
                 </div>
                 <div class="sp-why-card">
                     <div class="sp-why-icon">🎾</div>

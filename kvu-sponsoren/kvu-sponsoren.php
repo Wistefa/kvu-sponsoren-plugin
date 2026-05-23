@@ -2,7 +2,7 @@
 /**
  * Plugin Name: KVU Sponsoren
  * Description: Sponsoren- und Partnerpagina des KV Untertürkheim. Shortcode: [kvu_sponsoren]
- * Version: 1.0.4
+ * Version: 1.0.5
  * Author: KVU Untertuerkheim
  */
 
@@ -204,7 +204,7 @@ function kvu_sponsoren_shortcode() {
                 <div class="sp-why-card">
                     <div class="sp-why-icon">🎾</div>
                     <h3>Hospitality</h3>
-                    <p>Exklusive Einladungen zu Heimspielen der Bundesliga-Damen, Storchencup und weiteren Premium-Events.</p>
+                    <p>Exklusive Einladungen zu Heimspielen der Regionalliga Herren, dem Storchencup und weiteren Vereinsevents.</p>
                 </div>
                 <div class="sp-why-card">
                     <div class="sp-why-icon">💚</div>

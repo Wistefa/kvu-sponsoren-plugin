@@ -87,6 +87,13 @@ Eigener Reiter im Hauptmenü: **zwischen Gymnastik und Verschiedenes**
 
 ## Changelog
 
+### v1.0.5 (2026-05-23)
+- Hospitality-Karte: Text auf Regionalliga Herren + Storchencup korrigiert
+- Prestige-Karte: Bundesliga-Referenz entfernt, lokale Positionierung
+- Stats: 400+ Mitglieder (war 500)
+- Digital-Reichweite: „hundert" statt „tausend" Besucher
+- Admin: bis zu 3 Empfänger-E-Mail-Adressen konfigurierbar
+
 ### v1.0.0 (2026-05-23)
 - Erstveröffentlichung: Hero, Stats, Vorteile, Pakete, Logos, Kontaktformular
 - AJAX-Kontaktformular mit E-Mail-Versand
